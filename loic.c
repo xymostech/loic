@@ -91,7 +91,7 @@ void* loop(void* data) {
 }
 
 void usage(char **argv) {
-	printf("usage: %s [-r rate] [-t threads] host\n", argv[0]);
+	printf("usage: %s [-h] [-r rate] [-t threads] host\n", argv[0]);
 }
 
 int main(int argc, char **argv)
