@@ -90,8 +90,8 @@ void* loop(void* data) {
 	}
 }
 
-void usage(char **argv) {
-	printf("usage: %s [-h] [-r rate] [-t threads] host\n", argv[0]);
+void usage() {
+	printf("usage: loic [-h] [-r rate] [-t threads] host\n");
 }
 
 int main(int argc, char **argv)
@@ -119,7 +119,7 @@ int main(int argc, char **argv)
 				break;
 			case 'h':
 				printf("loic: low orbit ion cannon\n");
-				usage(argv);
+				usage();
 				printf("  -r, --rate:    modify requests per second\n"
 				       "                 default: 1000\n"
 				       "  -t, --threads: modify the number of threads\n"
@@ -127,14 +127,14 @@ int main(int argc, char **argv)
 				return 0;
 			default:
 				printf("illegal option -- %c\n", optopt);
-				usage(argv);
+				usage();
 				return -1;
 		}
 	}
 
 	if(optind == argc) {
 		printf("error: a host must be supplied\n");
-		usage(argv);
+		usage();
 		return -1;
 	}
 
