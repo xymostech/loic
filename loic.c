@@ -126,7 +126,6 @@ int main(int argc, char **argv)
 				       "                 default: 100\n");
 				return 0;
 			default:
-				printf("illegal option -- %c\n", optopt);
 				usage();
 				return -1;
 		}
