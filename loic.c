@@ -102,13 +102,14 @@ int main(int argc, char **argv)
 	struct option long_options[] = {
 		{"threads", required_argument, 0, 't'},
 		{"rate",    required_argument, 0, 'r'},
+		{"help",    no_argument,       0, 'h'},
 		{0,         0,                 0, 0  }
 	};
 
 	int c;
 	int option_index = 0;
 
-	while((c = getopt_long(argc, argv, "t:r:", long_options, &option_index)) != -1) {
+	while((c = getopt_long(argc, argv, "ht:r:", long_options, &option_index)) != -1) {
 		switch(c) {
 			case 't':
 				num_threads = atoi(optarg);
@@ -116,6 +117,14 @@ int main(int argc, char **argv)
 			case 'r':
 				rate = atoi(optarg);
 				break;
+			case 'h':
+				printf("loic: low orbit ion cannon\n");
+				usage(argv);
+				printf("  -r, --rate:    modify requests per second\n"
+				       "                 default: 1000\n"
+				       "  -t, --threads: modify the number of threads\n"
+				       "                 default: 100\n");
+				return 0;
 			default:
 				printf("illegal option -- %c\n", optopt);
 				usage(argv);
